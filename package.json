@@ -1,0 +1,51 @@
+{
+  "name": "supes",
+  "version": "1.0.0",
+  "description": "Supes app",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next",
+    "build": "next build",
+    "start": "next start",
+    "type-check": "tsc",
+    "test": "jest"
+  },
+  "author": "Ivo Reis",
+  "license": "ISC",
+  "devDependencies": {
+    "@headlessui/react": "^0.2.0",
+    "@types/jest": "^26.0.15",
+    "@types/node": "^14.14.6",
+    "@types/react": "^16.9.56",
+    "@typescript-eslint/eslint-plugin": "^4.6.0",
+    "eslint": "^7.12.1",
+    "eslint-config-airbnb-typescript": "^12.0.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.21.5",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "jest": "^26.6.3",
+    "next-compose-plugins": "^2.2.1",
+    "next-pwa": "^3.1.5",
+    "postcss": "^8.1.7",
+    "postcss-cli": "^8.2.0",
+    "postcss-import": "^13.0.0",
+    "prettier": "^2.1.2",
+    "ts-jest": "^26.4.2",
+    "typescript": "^4.0.5"
+  },
+  "dependencies": {
+    "@tailwindcss/typography": "^0.2.0",
+    "@tailwindcss/aspect-ratio": "^0.2.0",
+    "@tailwindcss/forms": "^0.2.1",
+    "autoprefixer": "^10.0.2",
+    "clsx": "^1.1.1",
+    "next": "latest",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
+    "tailwindcss": "^2.0.1",
+    "use-effect-reducer": "^0.7.0"
+  }
+}
