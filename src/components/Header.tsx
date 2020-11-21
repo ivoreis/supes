@@ -9,7 +9,10 @@ export interface HeaderProps {
 
 const navLinks = [
   { href: '/', label: 'Home' },
-  { href: '/supes', label: 'Supes' },
+  { href: '/supes/csr', label: 'CSR Supes' },
+  { href: '/supes/ssr', label: 'SSR Supes' },
+  { href: '/supes/ssg', label: 'SSG Supes' },
+  { href: '/supes/isr', label: 'ISR Supes' },
 ].map((link) => ({
   ...link,
   key: `nav-link-${link.href}-${link.label}`,

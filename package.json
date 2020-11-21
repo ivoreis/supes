@@ -8,13 +8,15 @@
     "build": "next build",
     "start": "next start",
     "type-check": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "generate-db": "ts-node --compiler-options '{\"module\": \"commonjs\"}' scripts/create-db.ts"
   },
   "author": "Ivo Reis",
   "license": "ISC",
   "devDependencies": {
     "@headlessui/react": "^0.2.0",
     "@types/jest": "^26.0.15",
+    "@types/lokijs": "^1.5.3",
     "@types/node": "^14.14.6",
     "@types/react": "^16.9.56",
     "@typescript-eslint/eslint-plugin": "^4.6.0",
@@ -37,15 +39,18 @@
     "typescript": "^4.0.5"
   },
   "dependencies": {
-    "@tailwindcss/typography": "^0.2.0",
     "@tailwindcss/aspect-ratio": "^0.2.0",
     "@tailwindcss/forms": "^0.2.1",
+    "@tailwindcss/typography": "^0.2.0",
     "autoprefixer": "^10.0.2",
     "clsx": "^1.1.1",
+    "lokijs": "^1.5.11",
     "next": "latest",
     "react": "16.14.0",
     "react-dom": "16.14.0",
+    "swr": "^0.3.9",
     "tailwindcss": "^2.0.1",
-    "use-effect-reducer": "^0.7.0"
+    "use-effect-reducer": "^0.7.0",
+    "uuid": "^8.3.1"
   }
 }
