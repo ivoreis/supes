@@ -2,7 +2,7 @@ import Loki from 'lokijs'
 import data from './db.json'
 import type { Supe } from '~/typings'
 
-let sup
+let sup: Collection<Supe> | null
 const supes = () => {
   if (!sup) {
     const db = new Loki('db')
