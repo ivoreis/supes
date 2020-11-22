@@ -1,5 +1,6 @@
 import { FC } from 'react'
 import Image from 'next/image'
+import clsx from 'clsx'
 import type { Supe } from '~/typings'
 
 import Echart from '~/components/Echart'
@@ -60,14 +61,20 @@ const SupeCard: FC<SupeInfoProps> = (props) => {
     connections: { groupAffiliation, relatives },
   } = supe
 
+  const alig = alignment.toUpperCase()
   return (
     <div className="w-2/3 pt-5 mx-auto flex relative text-default">
       <div className="flex-shrink-0">
         <Image height={399} width={300} src={imageUrl(image)} />
       </div>
       <div className="flex-1 pl-10">
-        <span className="px-2 py-1 text-green-800 text-xs font-bold bg-green-100 rounded-full absolute right-0">
-          {alignment.toUpperCase()}
+        <span
+          className={clsx(
+            'px-2 py-1 text-white text-xs font-medium rounded-full absolute right-0',
+            alig === 'GOOD' ? 'bg-primary' : 'bg-secondary',
+          )}
+        >
+          {alig}
         </span>
         <div className="flex flex-col">
           <h1 className="flex-1 text-2xl font-extrabold text-default sm:text-3xl">
@@ -87,26 +94,11 @@ const SupeCard: FC<SupeInfoProps> = (props) => {
               style={{ width: '600px', height: '400px' }}
             />
           </div>
-          {/* <dl className="flex text-sm self-center">
-            <dt className="font-bold pr-1">Intelligence</dt>
-            <dd>{intelligence}</dd>
-            <dt className="pl-4 font-bold pr-1">Power</dt>
-            <dd className="">{power}</dd>
-            <dt className="pl-4 font-bold pr-1">Strength</dt>
-            <dd>{strength}</dd>
-            <dt className="pl-4 font-bold pr-1">Speed</dt>
-            <dd>{speed}</dd>
-            <dt className="pl-4 font-bold pr-1">Durability</dt>
-            <dd>{durability}</dd>
-            <dt className="pl-4 font-bold pr-1">Combat</dt>
-            <dd>{combat}</dd>
-          </dl>
-          <br /> */}
           <dl>
             <dt className="font-bold">Relatives</dt>
-            <dd>{groupAffiliation}</dd>
-            <dt className="font-bold pt-4">Affiliation</dt>
             <dd>{relatives}</dd>
+            <dt className="font-bold pt-4">Affiliation</dt>
+            <dd>{groupAffiliation}</dd>
           </dl>
         </div>
       </div>

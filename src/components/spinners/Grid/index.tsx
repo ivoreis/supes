@@ -1,3 +1,4 @@
+import { CSSProperties } from 'react'
 import clsx from 'clsx'
 import styles from './style.module.css'
 
@@ -5,7 +6,7 @@ export interface GridProps {
   color?: string
   size?: number
   className?: string
-  style?: object
+  style?: CSSProperties
 }
 
 const Grid = ({ color = '#3182ce', className = '', style = {} }: GridProps) => (

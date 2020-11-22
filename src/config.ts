@@ -1,9 +1,5 @@
-import type { NextPage } from 'next'
-import useSwr from 'swr'
-import SupeCard from '~/components/SupeCard'
-import type { Supe } from '~/typings'
-
-const defaultIds = [
+// eslint-disable-next-line
+export const defaultIds = [
   '9f2642fd-7849-4cdf-b845-f008dc2cff3b',
   '883264fb-c048-4913-842f-7068caaf5ca7',
   '121e01b9-5543-42b7-962f-67c92f8a6abc',
@@ -33,34 +29,3 @@ const defaultIds = [
   '3551da75-c73a-4791-85dd-47e39ab57ab3',
   'c3a31101-f791-4083-a09b-ce55212ed2a9',
 ]
-
-const fetcher = (url: string) => fetch(url).then((r) => r.json())
-
-const detailsUrl = (supe: Supe) => `/supes/csr/${supe.uuid}`
-
-const CSR: NextPage = () => {
-  const { data, error } = useSwr<Supe[]>(
-    `/api/supes/by-id?id=${defaultIds.join('&id=')}`,
-    {
-      fetcher,
-    },
-  )
-
-  if (error) return <div>failed to load</div>
-  if (!data) return <div>loading...</div>
-
-  return (
-    <>
-      <div>
-        <h1 className="font-bold text-4xl mt-4 mb-8">Supes CSR</h1>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {data.map((s) => (
-            <SupeCard key={s.uuid} supe={s} detailsUrl={detailsUrl} />
-          ))}
-        </div>
-      </div>
-    </>
-  )
-}
-
-export default CSR
