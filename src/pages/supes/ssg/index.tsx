@@ -13,16 +13,14 @@ const detailsUrl = (supe: Supe) => `/supes/ssg/${supe.uuid}`
 const SSG: NextPage<SSGProps> = (props) => {
   const { data } = props
   return (
-    <>
-      <div>
-        <h1 className="font-bold text-4xl mt-4 mb-8">Supes SSG</h1>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {data.map((s) => (
-            <SupeCard key={s.uuid} supe={s} detailsUrl={detailsUrl} />
-          ))}
-        </div>
+    <div>
+      <h1 className="font-bold text-4xl mt-4 mb-8">Supes SSG</h1>
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {data.map((s) => (
+          <SupeCard key={s.uuid} supe={s} detailsUrl={detailsUrl} />
+        ))}
       </div>
-    </>
+    </div>
   )
 }
 

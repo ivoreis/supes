@@ -1,6 +1,8 @@
 import type { NextPage } from 'next'
 import useSwr from 'swr'
 import SupeCard from '~/components/SupeCard'
+import YinYang from '~/components/spinners/YinYang'
+import useLoading from '~/hooks/useLoading'
 import type { Supe } from '~/typings'
 
 const defaultIds = [
@@ -45,21 +47,27 @@ const CSR: NextPage = () => {
       fetcher,
     },
   )
+  const loading = useLoading(!data && !error, 500)
 
   if (error) return <div>failed to load</div>
-  if (!data) return <div>loading...</div>
+  if (loading) {
+    return (
+      <div className="text-center pt-24">
+        <YinYang className="w-80 h-80 md:w-96 md:h-96" />
+        <h2 className="mt-10 text-3xl font-bold text-default">Loading...</h2>
+      </div>
+    )
+  }
 
   return (
-    <>
-      <div>
-        <h1 className="font-bold text-4xl mt-4 mb-8">Supes CSR</h1>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-          {data.map((s) => (
-            <SupeCard key={s.uuid} supe={s} detailsUrl={detailsUrl} />
-          ))}
-        </div>
+    <div>
+      <h1 className="font-bold text-4xl mt-4 mb-8">Supes CSR</h1>
+      <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        {data.map((s) => (
+          <SupeCard key={s.uuid} supe={s} detailsUrl={detailsUrl} />
+        ))}
       </div>
-    </>
+    </div>
   )
 }
 
